@@ -53,12 +53,8 @@ public class Main {
 
         Thread mirror = new Thread(() -> {
             for (String text : texts) {
-                if (text.length() == 4) {
-                    String[] r = text.split("(?<=\\G.{" + 1 + "})");
-
-                    if (r[0].equals(r[3]) && r[1].equals(r[2])) {
-                        letsAdd(text);
-                    }
+                if (text.equals(new StringBuilder(text).reverse().toString())){
+                    letsAdd(text);
                 }
             }
         });
